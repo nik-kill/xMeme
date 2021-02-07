@@ -40,9 +40,8 @@ router.route('/update/:id').post((req, res) => {
     Meme.findById(req.params.id)
         .then(memes => {
             memes.username = req.body.username;
-            memes.description = req.body.description;
-            memes.duration = Number(req.body.duration);
-            memes.date = Date.parse(req.body.date);
+            memes.caption = req.body.caption;
+            memes.url = req.body.url;
 
             memes.save()
                 .then(() => res.json('Meme updated!'))
