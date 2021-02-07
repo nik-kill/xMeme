@@ -50,7 +50,7 @@ export default class CreateMeme extends Component {
         };
 
         console.log(meme);
-        axios.post('http://localhost:5000/', meme)
+        axios.post('https://x4meme.herokuapp.com/memes', meme)
             .then(res => console.log(res.data));
 
         window.location = '/';

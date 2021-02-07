@@ -20,7 +20,7 @@ export default class EditMeme extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/memes/' + this.props.match.params.id)
+        axios.get('https://x4meme.herokuapp.com/memes/' + this.props.match.params.id)
             .then(response => {
                 this.setState({
                     username: response.data.username,
@@ -64,7 +64,7 @@ export default class EditMeme extends Component {
 
         console.log(meme);
 
-        axios.post('http://localhost:5000/memes/update/' + this.props.match.params.id, meme)
+        axios.post('https://x4meme.herokuapp.com/memes/update/' + this.props.match.params.id, meme)
             .then(res => console.log(res.data));
 
         window.location = '/';

@@ -6,7 +6,7 @@ const Memes = props => (
     <tr>
         <td><b>{props.memes.username}</b> <br></br>
         {props.memes.caption} <br></br>
-        <img src={props.memes.url} width="400px"></img></td>
+        <img alt="memeImage" src={props.memes.url} width="400px"></img></td>
         <td>
             <Link to={"/edit/" + props.memes._id}>edit</Link> | <a href="#" onClick={() => { props.deleteMeme(props.memes._id) }}>delete</a>
         </td>
@@ -19,7 +19,7 @@ export default class MemesList extends Component {
         this.state = { memes: [] };
     }
     componentDidMount() {
-        axios.get('http://localhost:5000/memes')
+        axios.get('https://x4meme.herokuapp.com/memes')
             .then(response => {
                 this.setState({ memes: response.data });
             })
@@ -28,7 +28,7 @@ export default class MemesList extends Component {
             })
     }
     deleteMeme(id) {
-        axios.delete('http://localhost:5000/memes/' + id)
+        axios.delete('https://x4meme.herokuapp.com/memes/' + id)
             .then(res => console.log(res.data));
         this.setState({
             memes: this.state.memes.filter(el => el._id !== id)
