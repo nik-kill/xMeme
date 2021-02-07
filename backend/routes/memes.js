@@ -39,7 +39,7 @@ router.route('/:id').delete((req, res) => {
 router.route('/update/:id').post((req, res) => {
     Meme.findById(req.params.id)
         .then(memes => {
-            memes.username = req.body.username;
+            // memes.username = req.body.username;
             memes.caption = req.body.caption;
             memes.url = req.body.url;
 

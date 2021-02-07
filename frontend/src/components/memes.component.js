@@ -6,9 +6,9 @@ const Memes = props => (
     <tr>
         <td><b>{props.memes.username}</b> <br></br>
         {props.memes.caption} <br></br>
-        <img alt="memeImage" src={props.memes.url} width="400px"></img></td>
+        <img alt="memeImage" src={props.memes.url} width="600px"></img></td>
         <td>
-            <Link to={"/edit/" + props.memes._id}>edit</Link> | <a href="#" onClick={() => { props.deleteMeme(props.memes._id) }}>delete</a>
+            <button><Link to={"/edit/" + props.memes._id}>EDIT</Link></button> | <button onClick={() => { props.deleteMeme(props.memes._id) }}>DELETE</button>
         </td>
     </tr>
 )

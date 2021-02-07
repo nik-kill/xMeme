@@ -7,7 +7,7 @@ export default class EditMeme extends Component {
     constructor(props) {
         super(props);
 
-        this.onChangeUsername = this.onChangeUsername.bind(this);
+        // this.onChangeUsername = this.onChangeUsername.bind(this);
         this.onChangeCaption = this.onChangeCaption.bind(this);
         this.onChangeURL = this.onChangeURL.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
@@ -35,11 +35,11 @@ export default class EditMeme extends Component {
 
     }
 
-    onChangeUsername(e) {
-        this.setState({
-            username: e.target.value
-        });
-    }
+    // onChangeUsername(e) {
+    //     this.setState({
+    //         username: e.target.value
+    //     });
+    // }
 
     onChangeCaption(e) {
         this.setState({
@@ -67,7 +67,7 @@ export default class EditMeme extends Component {
         axios.post('https://x4meme.herokuapp.com/memes/update/' + this.props.match.params.id, meme)
             .then(res => console.log(res.data));
 
-        window.location = '/';
+        // window.location = '/';
     }
 
     render() {
@@ -76,13 +76,7 @@ export default class EditMeme extends Component {
                 <h3>Edit Meme</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
-                        <label>User: </label>
-                        <input type="text"
-                            required
-                            className="form-control"
-                            value={this.state.username}
-                            onChange={this.onChangeUsername}
-                        />
+                        <h1>{this.state.username}</h1>
                     </div>
                     <div className="form-group">
                         <label>Caption: </label>
