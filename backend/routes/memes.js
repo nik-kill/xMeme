@@ -22,7 +22,7 @@ router.route('/').post((req, res) => {
     });
 
     newMeme.save()
-        .then(() => res.json('Meme added!'))
+        .then(() => res.json({ "id": newMeme._id }))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
