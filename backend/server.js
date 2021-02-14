@@ -1,16 +1,18 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const swaggerUi = require('swagger-ui-express'),
+swaggerDocument = require('./swagger.json');
 
 require('dotenv').config();
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8081;
 
 app.use(cors());
 app.use(express.json());
 
-const uri = process.env.MONGO_URI;
+const uri = process.env.MONGO_URI || 'mongodb://localhost/my_database' ;
 
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true }
 );
@@ -21,6 +23,7 @@ connection.once('open', () => {
 
 const memeRouter = require('./routes/memes');
 
+app.use('/memes/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/memes', memeRouter);
 app.use('/', memeRouter);
 
