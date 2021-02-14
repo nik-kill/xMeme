@@ -13,6 +13,12 @@ export default class Navbar extends Component {
                         <li className="navbar-item">
                             <Link to="/create" className="nav-link">Show Creativity</Link>
                         </li>
+                        
+                    </ul>
+                    <ul>
+                        <li className="navbar-item">
+                            <a href="https://nik-kill.github.io/" target="_blank"> Portfolio </a>
+                        </li>
                     </ul>
                 </div>
             </nav>
