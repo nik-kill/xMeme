@@ -35,7 +35,7 @@ export default class MemesList extends Component {
         })
     }
     memesList() {
-        return this.state.memes.map(currentmemes => {
+        return this.state.memes.reverse().map(currentmemes => {
             return <Memes memes={currentmemes} 
             deleteMeme={this.deleteMeme} key={currentmemes._id} />;
         })
