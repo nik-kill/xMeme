@@ -23,7 +23,7 @@ export default class EditMeme extends Component {
         axios.get('https://x4meme.herokuapp.com/memes/' + this.props.match.params.id)
             .then(response => {
                 this.setState({
-                    username: response.data.username,
+                    username: response.data.name,
                     caption: response.data.caption,
                     url: response.data.url
                 })
@@ -34,12 +34,6 @@ export default class EditMeme extends Component {
             })
 
     }
-
-    // onChangeUsername(e) {
-    //     this.setState({
-    //         username: e.target.value
-    //     });
-    // }
 
     onChangeCaption(e) {
         this.setState({
@@ -57,7 +51,7 @@ export default class EditMeme extends Component {
         e.preventDefault();
 
         const meme = {
-            username: this.state.username,
+            name: this.state.username,
             caption: this.state.caption,
             url: this.state.url,
         };

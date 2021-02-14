@@ -44,7 +44,7 @@ export default class CreateMeme extends Component {
         e.preventDefault();
 
         const meme = {
-            username: this.state.username,
+            name: this.state.username,
             caption: this.state.caption,
             url: this.state.url,
         };

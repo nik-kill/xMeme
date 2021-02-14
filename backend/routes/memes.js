@@ -11,12 +11,12 @@ router.route('/').get((req, res) => {
 router.route('/').post((req, res) => {
     console.log("post request /meme");
     
-    const username = req.body.username;
+    const name = req.body.name;
     const caption = req.body.caption;
     const url = req.body.url;
 
     const newMeme = new Meme({ 
-        username,
+        name,
         caption,
         url, 
     });
@@ -39,7 +39,6 @@ router.route('/:id').delete((req, res) => {
 router.route('/update/:id').post((req, res) => {
     Meme.findById(req.params.id)
         .then(memes => {
-            // memes.username = req.body.username;
             memes.caption = req.body.caption;
             memes.url = req.body.url;
 

@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const Memes = props => (
     <tr>
-        <td><b>{props.memes.username}</b> <br></br>
+        <td><b>{props.memes.name}</b> <br></br>
         {props.memes.caption} <br></br>
         <img alt="memeImage" src={props.memes.url} width="600px"></img></td>
         <td>
