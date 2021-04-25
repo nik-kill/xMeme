@@ -2,15 +2,27 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+
 const Memes = props => (
-    <tr>
-        <td><b>{props.memes.name}</b> <br></br>
-        {props.memes.caption} <br></br>
-        <img alt="memeImage" src={props.memes.url} width="600px"></img></td>
-        <td>
-            <button><Link to={"/edit/" + props.memes._id}>EDIT</Link></button> | <button onClick={() => { props.deleteMeme(props.memes._id) }}>DELETE</button>
-        </td>
-    </tr>
+    <div className="meme">
+
+        <tr>
+            <td>
+                <img alt="memeImage" src={props.memes.url} width="600px"></img>
+            </td>
+            <td>
+                <div className="memeData">
+                    <b>Username: </b> {props.memes.name} <br></br>
+                    <b>Caption: </b> {props.memes.caption} <br></br>
+                    <button><Link to={"/edit/" + props.memes._id}>EDIT</Link></button> | <button onClick={() => { props.deleteMeme(props.memes._id) }}>DELETE</button>
+
+                </div>
+                
+            </td>
+        </tr>
+
+
+    </div>
 )
 export default class MemesList extends Component {
     constructor(props) {
@@ -43,13 +55,9 @@ export default class MemesList extends Component {
     render() {
         return (
             <div>
-                <h3>x-Memes</h3>
-                <table className="table">
-                    <thead className="thead-light">
-                        <tr>
-                            <th>Lets see what we got !!</th>
-                        </tr>
-                    </thead>
+                <h3>XXXXXXXXXXXXXXXXXXXXXXXXX</h3>
+                
+                <table className="memeTable">
                     <tbody>
                         {this.memesList()}
                     </tbody>
