@@ -5,23 +5,12 @@ import axios from 'axios';
 
 const Memes = props => (
     <div className="meme">
-
-        <tr>
-            <td>
-                <img alt="memeImage" src={props.memes.url} width="600px"></img>
-            </td>
-            <td>
-                <div className="memeData">
-                    <b>Username: </b> {props.memes.name} <br></br>
-                    <b>Caption: </b> {props.memes.caption} <br></br>
-                    <button><Link to={"/edit/" + props.memes._id}>EDIT</Link></button> | <button onClick={() => { props.deleteMeme(props.memes._id) }}>DELETE</button>
-
-                </div>
-                
-            </td>
-        </tr>
-
-
+        <img alt="memeImage" src={props.memes.url} height="400px"></img>
+        <div className="memeData">
+            <b>Username: </b> {props.memes.name} <br></br>
+            <b>Caption: </b> {props.memes.caption} <br></br>
+            <button><Link to={"/edit/" + props.memes._id}>EDIT</Link></button> | <button onClick={() => { props.deleteMeme(props.memes._id) }}>DELETE</button>
+        </div>
     </div>
 )
 export default class MemesList extends Component {
@@ -54,14 +43,8 @@ export default class MemesList extends Component {
     }
     render() {
         return (
-            <div>
-                <h3>XXXXXXXXXXXXXXXXXXXXXXXXX</h3>
-                
-                <table className="memeTable">
-                    <tbody>
-                        {this.memesList()}
-                    </tbody>
-                </table>
+            <div className="memeBox">
+                {this.memesList()}
             </div>
         )
     }

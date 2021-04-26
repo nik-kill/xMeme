@@ -16,13 +16,13 @@
 
 .App {
   text-align: center;
-  background: linear-gradient(rgba(0, 0, 0, 0.95), transparent);
+  background: radial-gradient(rgba(0, 0, 0, 0.95), transparent);
   background-repeat: no-repeat;
   padding: 2px;
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #1e1e1f;
   min-height: 50px;
   align-items: center;
   justify-content: center;
@@ -38,15 +38,15 @@
   background-color: silver;
   color: black;
 }
-.memeTable{
+.memeBox{
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
-.memeData {
-  position: absolute;
-  align-items: center;
-  
-  
+.meme {
+  background-color: black;
+  color:aqua;
+
 }
 
 img {
