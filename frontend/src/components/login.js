@@ -54,7 +54,7 @@ export default class Login extends Component {
                     />
                 </div>
                 <div className="submit">
-                    <input type="submit" value="Share" className="btn" />
+                    <input type="submit" value="Login" className="btn" />
                 </div>
 
             </form>
