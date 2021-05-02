@@ -15,7 +15,10 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <header className="App-header"></header>
+        <header className="App-header">
+          <b><i>Your daily dose of FUN :</i></b>
+          Did you hear about the guy whose whole left side got amputated? He’s all right now.
+          </header>
         <Navbar />
         <Board />
         <br />
