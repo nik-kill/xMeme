@@ -15,19 +15,26 @@ export default class Login extends Component {
     }
 
     onChangeUsername(e){
-        console.log("username to be changed");
+        // console.log("username to be changed");
+        this.setState({
+            username: e.target.value
+        });
     }
     onChangePassword(e) {
-        console.log("password to be changed");
+        // console.log("password to be changed");
+        this.setState({
+            password: e.target.value
+        });
     }
     onSubmit(e){
         console.log("Submit login");
+        console.log(this.state);
     }
     
     render() {
         return (
             <form onSubmit={this.onSubmit} className="loginBoard">
-                <h1>Login</h1>
+                <h1>Login</h1><hr />
                 <div className="username">
                     <label>Username: </label>
                     <input type="text"
@@ -39,12 +46,15 @@ export default class Login extends Component {
                 </div>
                 <div className="password">
                     <label>Password: </label>
-                    <input type="text"
+                    <input type="password"
                         required
                         className="form-control"
                         value={this.state.password}
                         onChange={this.onChangePassword}
                     />
+                </div>
+                <div className="submit">
+                    <input type="submit" value="Share" className="btn" />
                 </div>
 
             </form>
