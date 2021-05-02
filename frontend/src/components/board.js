@@ -23,7 +23,7 @@ export default class Board extends Component {
     render() {
         return (
             <div className="board">
-                <button onClick={this.handleToggle}> 
+                <button onClick={this.handleToggle} className="toggleButton"> 
                 Login / SignUp
                 </button>
                 {this.state.isUser ? <Login /> : <Register />}
