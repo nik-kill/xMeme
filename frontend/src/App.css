@@ -71,6 +71,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 .meme {
   background-color:rgba(0, 0, 0, 0.95);
@@ -87,4 +89,6 @@ img {
 .footer {
   background-color: black;
   color: white;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  padding: 15px;
 }
