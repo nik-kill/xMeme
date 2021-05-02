@@ -41,6 +41,7 @@
 
 .board{
   /* border: solid; */
+
 }
 
 .toggleButton{
@@ -62,6 +63,7 @@
   flex-direction: column;
   align-items: center;
   padding: 10px;
+  border-radius: 25px;
 
 }
 
@@ -80,4 +82,9 @@
 
 img {
   padding: 5px;
+}
+
+.footer {
+  background-color: black;
+  color: white;
 }

@@ -9,7 +9,7 @@ import EditMeme from "./components/edit-meme.component";
 import CreateMeme from "./components/create-meme.component";
 
 import Board from "./components/board";
-
+import Footer from "./components/footer";
 function App() {
 
   return (
@@ -23,6 +23,8 @@ function App() {
         <Route path="/edit/:id" component={EditMeme} />
         <Route path="/create" component={CreateMeme} />
       </div>
+
+      <Footer />
     </Router>
   );
 }
