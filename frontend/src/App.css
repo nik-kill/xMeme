@@ -66,6 +66,19 @@
   border-radius: 25px;
 
 }
+.username, .password, .name{
+  width: 30%;
+}
+.loginInput, .signUpInput{
+  margin: 2px;
+  width: 100%;
+}
+.login, .signUp{
+  margin: 15px;
+}
+.btn{
+  font-size: large;
+}
 
 .memeBox{
   display: flex;

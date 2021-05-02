@@ -39,7 +39,7 @@ export default class Login extends Component {
                     <label>Username: </label>
                     <input type="text"
                         required
-                        className="form-control"
+                        className="loginInput"
                         value={this.state.username}
                         onChange={this.onChangeUsername}
                     />
@@ -48,12 +48,12 @@ export default class Login extends Component {
                     <label>Password: </label>
                     <input type="password"
                         required
-                        className="form-control"
+                        className="loginInput"
                         value={this.state.password}
                         onChange={this.onChangePassword}
                     />
                 </div>
-                <div className="submit">
+                <div className="login">
                     <input type="submit" value="Login" className="btn" />
                 </div>
 

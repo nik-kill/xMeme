@@ -55,7 +55,7 @@ export default class Login extends Component {
                     <label>Name: </label>
                     <input type="text"
                         required
-                        className="form-control"
+                        className="signUpInput"
                         value={this.state.name}
                         onChange={this.onChangeName}
                     />
@@ -64,7 +64,7 @@ export default class Login extends Component {
                     <label>Username: </label>
                     <input type="text"
                         required
-                        className="form-control"
+                        className="signUpInput"
                         value={this.state.username}
                         onChange={this.onChangeUsername}
                     />
@@ -73,7 +73,7 @@ export default class Login extends Component {
                     <label>Password: </label>
                     <input type="password"
                         required
-                        className="form-control"
+                        className="signUpInput"
                         value={this.state.password}
                         onChange={this.onChangePassword}
                     />
@@ -82,12 +82,12 @@ export default class Login extends Component {
                     <label>Repeat Password: </label>
                     <input type="password"
                         required
-                        className="form-control"
+                        className="signUpInput"
                         value={this.state.rpassword}
                         onChange={this.onChangeRPassword}
                     />
                 </div>
-                <div className="submit">
+                <div className="signUp">
                     <input type="submit" value="Sign Up" className="btn" />
                 </div>
 
