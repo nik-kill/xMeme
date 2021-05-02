@@ -15,7 +15,6 @@
 }
 
 .App {
-  text-align: center;
   background: radial-gradient(rgba(0, 0, 0, 0.95), transparent);
   background-repeat: no-repeat;
   padding: 2px;
@@ -38,14 +37,34 @@
   background-color: silver;
   color: black;
 }
+
+.toggleButton{
+  display: flex;
+  margin-left:20%;
+  margin-right: 20%;
+  border: solid;
+}
+.board{
+  border: solid;
+}
+
+.loginBoard, .registerBoard{
+  background-color: burlywood;
+  width: 50%;
+  font-family:cursive;
+    
+}
+
 .memeBox{
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 .meme {
-  background-color: black;
-  color:aqua;
+  background-color:rgba(0, 0, 0, 0.95);
+  color:orange;
+  margin: 1px;
+  border-radius: 15px;
 
 }
 

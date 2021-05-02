@@ -3,22 +3,21 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import './App.css';
 
-import Navbar from "./components/navbar.component"
+import Navbar from "./components/navbar.component";
 import MemesList from "./components/memes.component";
 import EditMeme from "./components/edit-meme.component";
 import CreateMeme from "./components/create-meme.component";
 
+import Board from "./components/board";
 
 function App() {
+
   return (
     <Router>
       <div className="App">
-        {/* Link to Portfolio Website */}
-
-        <a className="portfolioLink" href="https://nik-kill.github.io/" target="_blank">Portfolio </a>
-
         <header className="App-header"></header>
         <Navbar />
+        <Board />
         <br />
         <Route path="/" exact component={MemesList} />
         <Route path="/edit/:id" component={EditMeme} />
