@@ -34,7 +34,8 @@ export default class Login extends Component {
     render() {
         return (
             <form onSubmit={this.onSubmit} className="loginBoard">
-                <h1>Login</h1><hr />
+                <h1>Login - Already a member.</h1>
+                <hr />
                 <div className="username">
                     <label>Username: </label>
                     <input type="text"

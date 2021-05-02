@@ -50,7 +50,7 @@ export default class Login extends Component {
     render() {
         return (
             <form onSubmit={this.onSubmit} className="registerBoard">
-                <h1>Register</h1><hr />
+                <h1>Register - Welcome to the Community !</h1><hr />
                 <div className="name">
                     <label>Name: </label>
                     <input type="text"
