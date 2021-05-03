@@ -1,10 +1,10 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+require('dotenv').config();
+
 // const swaggerUi = require('swagger-ui-express'),
 // swaggerDocument = require('./swagger.json');
-
-require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 8081;
@@ -23,12 +23,11 @@ connection.once('open', () => {
 const memeRouter = require('./routes/memes');
 const userRouter = require('./routes/user');
 
-// app.use('/memes/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/memes', memeRouter);
 app.use('/', memeRouter);
-app.use('/users', userRouter);
+app.use('/user', userRouter);
 
-
+// app.use('/memes/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
