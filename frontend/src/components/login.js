@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 export default class Login extends Component {
     constructor(props) {
@@ -26,11 +27,19 @@ export default class Login extends Component {
             password: e.target.value
         });
     }
-    onSubmit(e){
-        console.log("Submit login");
-        console.log(this.state);
+    onSubmit(e) {
+        e.preventDefault();
+        const credentials = {
+            username: this.state.username,
+            password: this.state.password,
+        };
+
+        // console.log(credentials);
+
+        axios.post('http://localhost:8081/user/login', credentials)
+            .then(res => console.log(res.data));
     }
-    
+
     render() {
         return (
             <form onSubmit={this.onSubmit} className="loginBoard">
