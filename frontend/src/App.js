@@ -6,7 +6,7 @@ import './App.css';
 import Navbar from "./components/navbar.component";
 import MemesList from "./components/memes.component";
 import EditMeme from "./components/edit-meme.component";
-import CreateMeme from "./components/create-meme.component";
+
 
 import Board from "./components/board";
 import Footer from "./components/footer";
@@ -24,9 +24,8 @@ function App() {
         <br />
         <Route path="/" exact component={MemesList} />
         <Route path="/edit/:id" component={EditMeme} />
-        <Route path="/create" component={CreateMeme} />
+        
       </div>
-
       <Footer />
     </Router>
   );

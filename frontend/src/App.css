@@ -57,7 +57,7 @@
   border-radius: 15px;
 }
 
-.loginBoard, .registerBoard{
+.loginBoard, .registerBoard, .createMemeBoard{
   background-color: burlywood;
   font-family:cursive;
   /* border: solid; */
@@ -68,10 +68,10 @@
   border-radius: 25px;
 
 }
-.username, .password, .name{
+.username, .password, .name, .caption, .url{
   width: 30%;
 }
-.loginInput, .signUpInput{
+.loginInput, .signUpInput, .memeInput{ 
   margin: 2px;
   width: 100%;
 }
