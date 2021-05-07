@@ -1,5 +1,7 @@
 const router = require('express').Router();
-let Meme = require('../models/memes.model');
+const auth = require('../middleware/auth');
+
+const Meme = require('../models/memes.model');
 
 router.route('/').get((req, res) => {
     console.log("get request /meme");
@@ -8,7 +10,7 @@ router.route('/').get((req, res) => {
         .catch(err => res.status(400).json('Error: '+err));
 });
 
-router.route('/').post((req, res) => {
+router.post('/', auth, (req, res) => {
     console.log("post request /meme");
     
     const name = req.body.name;
@@ -31,12 +33,14 @@ router.route('/:id').get((req, res) => {
         .then(memes => res.json(memes))
         .catch(err => res.status(400).json('Error: ' + err));
 });
-router.route('/:id').delete((req, res) => {
+
+router.delete('/:id', auth, (req, res) => {
     Meme.findByIdAndDelete(req.params.id)
         .then(() => res.json('Meme deleted.'))
         .catch(err => res.status(400).json('Error: ' + err));
 });
-router.route('/update/:id').post((req, res) => {
+
+router.patch('/update/:id', auth, (req, res) => {
     Meme.findById(req.params.id)
         .then(memes => {
             memes.caption = req.body.caption;

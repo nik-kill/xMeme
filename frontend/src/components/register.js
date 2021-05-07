@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component,useState, useContext } from 'react';
 import axios from 'axios';
 
-export default class Login extends Component {
+export default class Register extends Component {
     constructor(props) {
         super(props);
         
@@ -43,7 +43,7 @@ export default class Login extends Component {
             rpassword: e.target.value
         });
     }
-    onSubmit(e) {
+    async onSubmit(e) {
         e.preventDefault();
         const user = {
             name: this.state.name,
@@ -51,11 +51,19 @@ export default class Login extends Component {
             password: this.state.password,
             rpassword: this.state.rpassword,
         };
-
         // console.log(user);
-
-        axios.post('http://localhost:8081/user/register', user)
+        const{username, password}= this.state;
+        await axios.post('http://localhost:8081/user/register', user)
             .then(res => console.log(res.data));
+        
+        const loginResponse = await axios.post("http://localhost:8081/user/login",{
+            username, password
+        });
+        // setUserData({
+        //     token: loginResponse.data.token,
+        //     user: loginResponse.data.user
+        // });
+        localStorage.setItem("auth-token", loginResponse.data.token);
     }
 
     render() {

@@ -20,12 +20,9 @@ connection.once('open', () => {
     console.log("MongoDB database connection established successfully");
 })
 
-const memeRouter = require('./routes/memes');
-const userRouter = require('./routes/user');
-
-app.use('/memes', memeRouter);
-app.use('/', memeRouter);
-app.use('/user', userRouter);
+app.use('/memes', require('./routes/memes'));
+app.use('/', require('./routes/memes'));
+app.use('/user', require('./routes/user'));
 
 // app.use('/memes/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
