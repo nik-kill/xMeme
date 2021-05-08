@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
-
+import { connect } from 'react-redux';
+import { getMemes, deleteMeme } from '../actions/memeActions';
+import PropTypes from 'prop-types';
 
 const Memes = props => (
     <div className="meme">
@@ -13,34 +14,35 @@ const Memes = props => (
         </div>
     </div>
 )
-export default class MemesList extends Component {
+class MemesList extends Component {
     constructor(props) {
         super(props);
         this.deleteMeme = this.deleteMeme.bind(this);
-        this.state = { memes: [] };
-    }
+    };
+
+    static propTypes = {
+        getMemes : PropTypes.func.isRequired,
+        meme : PropTypes.object.isRequired,
+        isAuthenticated: PropTypes.bool
+    };
+
     componentDidMount() {
-        axios.get('https://x4meme.herokuapp.com/memes')
-            .then(response => {
-                this.setState({ memes: response.data });
-            })
-            .catch((error) => {
-                console.log(error);
-            })
+        this.props.getMemes();
     }
+    
     deleteMeme(id) {
-        axios.delete('https://x4meme.herokuapp.com/memes/' + id)
-            .then(res => console.log(res.data));
-        this.setState({
-            memes: this.state.memes.filter(el => el._id !== id)
-        })
-    }
+        this.props.deleteMeme(id);
+    };
+
     memesList() {
-        return this.state.memes.reverse().map(currentmemes => {
+        const { memes }  = this.props.meme;
+        console.log('comppp');
+        console.log(memes);
+        return memes.map(currentmemes => {
             return <Memes memes={currentmemes} 
             deleteMeme={this.deleteMeme} key={currentmemes._id} />;
-        })
-    }
+        });
+    };
     render() {
         return (
             <div className="memeBox">
@@ -49,3 +51,13 @@ export default class MemesList extends Component {
         )
     }
 }
+
+const mapStateToProps = state => ({
+    meme: state.meme,
+    isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(
+    mapStateToProps,
+    { getMemes, deleteMeme }
+)(MemesList);

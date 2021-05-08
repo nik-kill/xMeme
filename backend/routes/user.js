@@ -115,7 +115,7 @@ router.route('/login').post(async (req, res) => {
 // });
 
 router.get("/user", auth, async(req,res) =>{
-    const user = await User.findById(user);
+    const user = await User.findById(req.user.id).select('-password');
     res.json(user);
 });
 

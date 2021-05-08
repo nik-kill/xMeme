@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 
-export default class Login extends Component {
+import { login } from '../actions/authActions';
+import { clearErrors } from '../actions/errorActions';
+
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
+class Login extends Component {
     constructor(props) {
         super(props);
 
@@ -11,18 +16,22 @@ export default class Login extends Component {
 
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            msg: null
         }
     }
+    static propTypes = {
+        login: PropTypes.func.isRequired,
+    };
+
+    
 
     onChangeUsername(e){
-        // console.log("username to be changed");
         this.setState({
             username: e.target.value
         });
     }
     onChangePassword(e) {
-        // console.log("password to be changed");
         this.setState({
             password: e.target.value
         });
@@ -34,10 +43,7 @@ export default class Login extends Component {
             password: this.state.password,
         };
 
-        // console.log(credentials);
-
-        axios.post('http://localhost:8081/user/login', credentials)
-            .then(res => console.log(res.data));
+        this.props.login(credentials);
     }
 
     render() {
@@ -72,4 +78,12 @@ export default class Login extends Component {
     }
 }
 
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated,
+    error: state.error
+});
 
+export default connect(
+    mapStateToProps,
+    { login, clearErrors }
+)(Login);

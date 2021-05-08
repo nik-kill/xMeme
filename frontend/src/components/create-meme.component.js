@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 
-export default class CreateMeme extends Component {
+import { connect } from 'react-redux';
+import { addMeme } from '../actions/memeActions';
+import PropTypes from 'prop-types';
+
+class CreateMeme extends Component {
     constructor(props) {
         super(props);
 
@@ -16,6 +19,10 @@ export default class CreateMeme extends Component {
             url: ''
         }
     }
+
+    static propTypes = {
+        isAuthenticated: PropTypes.bool
+    };
 
     onChangeUsername(e) {
         this.setState({
@@ -45,9 +52,9 @@ export default class CreateMeme extends Component {
         };
 
         console.log(meme);
-
-        axios.post('https://x4meme.herokuapp.com/memes', meme)
-            .then(res => console.log(res.data));
+        this.props.addMeme(meme);
+        // axios.post('https://x4meme.herokuapp.com/memes', meme)
+        //     .then(res => console.log(res.data));
 
         // window.location = '/';
     }
@@ -91,3 +98,13 @@ export default class CreateMeme extends Component {
         )
     }
 }
+
+const mapStateToProps = state => ({
+    meme: state.meme,
+    isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(
+    mapStateToProps,
+    { addMeme }
+)(CreateMeme);

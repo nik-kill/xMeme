@@ -1,7 +1,10 @@
-import React, { Component,useState, useContext } from 'react';
-import axios from 'axios';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { register } from '../actions/authActions';
+import { clearErrors } from '../actions/errorActions';
 
-export default class Register extends Component {
+class Register extends Component {
     constructor(props) {
         super(props);
         
@@ -17,7 +20,11 @@ export default class Register extends Component {
             password: '',
             rpassword: ''
         }
-    }
+    };
+
+    static propTypes = {
+        register: PropTypes.func.isRequired,
+    };
 
     onChangeName(e) {
         // console.log("name to be changed");
@@ -45,25 +52,27 @@ export default class Register extends Component {
     }
     async onSubmit(e) {
         e.preventDefault();
-        const user = {
+        const newUser = {
             name: this.state.name,
             username: this.state.username,
             password: this.state.password,
             rpassword: this.state.rpassword,
         };
         // console.log(user);
-        const{username, password}= this.state;
-        await axios.post('http://localhost:8081/user/register', user)
-            .then(res => console.log(res.data));
+        // const{username, password}= this.state;
+        this.props.register(newUser);
+
+        // await axios.post('http://localhost:8081/user/register', user)
+        //     .then(res => console.log(res.data));
         
-        const loginResponse = await axios.post("http://localhost:8081/user/login",{
-            username, password
-        });
-        // setUserData({
-        //     token: loginResponse.data.token,
-        //     user: loginResponse.data.user
+        // const loginResponse = await axios.post("http://localhost:8081/user/login",{
+        //     username, password
         // });
-        localStorage.setItem("auth-token", loginResponse.data.token);
+        // // setUserData({
+        // //     token: loginResponse.data.token,
+        // //     user: loginResponse.data.user
+        // // });
+        // localStorage.setItem("auth-token", loginResponse.data.token);
     }
 
     render() {
@@ -115,3 +124,12 @@ export default class Register extends Component {
     }
 }
 
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated,
+    error: state.error
+});
+
+export default connect(
+    mapStateToProps,
+    { register, clearErrors }
+)(Register);
