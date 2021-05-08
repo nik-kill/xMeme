@@ -7,28 +7,20 @@ import PropTypes from 'prop-types';
 class CreateMeme extends Component {
     constructor(props) {
         super(props);
-
-        this.onChangeUsername = this.onChangeUsername.bind(this);
         this.onChangeCaption = this.onChangeCaption.bind(this);
         this.onChangeURL = this.onChangeURL.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
-            username: '',
             caption: '',
             url: ''
         }
-    }
-
-    static propTypes = {
-        isAuthenticated: PropTypes.bool
     };
 
-    onChangeUsername(e) {
-        this.setState({
-            username: e.target.value
-        });
-    }
+    static propTypes = {
+        auth: PropTypes.object.isRequired
+    };
+
 
     onChangeCaption(e) {
         this.setState({
@@ -44,9 +36,10 @@ class CreateMeme extends Component {
 
     onSubmit(e) {
         e.preventDefault();
+        const { user } = this.props.auth;
 
         const meme = {
-            name: this.state.username,
+            name: user.username,
             caption: this.state.caption,
             url: this.state.url,
         };
@@ -60,18 +53,10 @@ class CreateMeme extends Component {
     }
 
     render() {
+        
         return (
             <form onSubmit={this.onSubmit} className="createMemeBoard">
                 <h3><i>Lets Share Some Memes</i></h3>
-                <div className="name">
-                    <label>Name: </label>
-                    <input type="text"
-                        required
-                        className="memeInput"
-                        value={this.state.username}
-                        onChange={this.onChangeUsername}
-                    />
-                </div>
                 <div className="caption">
                     <label>Caption: </label>
                     <input type="text"
@@ -101,7 +86,7 @@ class CreateMeme extends Component {
 
 const mapStateToProps = state => ({
     meme: state.meme,
-    isAuthenticated: state.auth.isAuthenticated
+    auth: state.auth
 });
 
 export default connect(

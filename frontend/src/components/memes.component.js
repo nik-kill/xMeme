@@ -10,7 +10,13 @@ const Memes = props => (
         <div className="memeData">
             <b>Username: </b> {props.memes.name} <br></br>
             <b>Caption: </b> {props.memes.caption} <br></br>
-            <button><Link to={"/edit/" + props.memes._id}>EDIT</Link></button> | <button onClick={() => { props.deleteMeme(props.memes._id) }}>DELETE</button>
+            {props.isAuth && props.user && (props.user.username==props.memes.name) ?
+            <div>
+                <button><Link to={"/edit/" + props.memes._id}>EDIT</Link></button> | 
+                <button onClick={() => { props.deleteMeme(props.memes._id) }}>DELETE</button>
+            </div>
+            : ' ' }
+            
         </div>
     </div>
 )
@@ -23,7 +29,7 @@ class MemesList extends Component {
     static propTypes = {
         getMemes : PropTypes.func.isRequired,
         meme : PropTypes.object.isRequired,
-        isAuthenticated: PropTypes.bool
+        auth: PropTypes.object.isRequired
     };
 
     componentDidMount() {
@@ -35,12 +41,13 @@ class MemesList extends Component {
     };
 
     memesList() {
+        const { isAuthenticated, user } = this.props.auth;
         const { memes }  = this.props.meme;
-        console.log('comppp');
         console.log(memes);
+        console.log(user);
         return memes.map(currentmemes => {
             return <Memes memes={currentmemes} 
-            deleteMeme={this.deleteMeme} key={currentmemes._id} />;
+            deleteMeme={this.deleteMeme} key={currentmemes._id} isAuth={ isAuthenticated } user={user}/>;
         });
     };
     render() {
@@ -54,7 +61,7 @@ class MemesList extends Component {
 
 const mapStateToProps = state => ({
     meme: state.meme,
-    isAuthenticated: state.auth.isAuthenticated
+    auth: state.auth
 });
 
 export default connect(

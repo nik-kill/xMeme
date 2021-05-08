@@ -30,6 +30,7 @@ export const addMeme = meme => (dispatch, getState) => {
 };
 
 export const deleteMeme = id => (dispatch, getState) => {
+    console.log("DELETING----- reducer");
     axios.delete(`http://localhost:8081/${id}`, tokenConfig(getState))
     .then(res => dispatch({
         type: DELETE_MEME,
