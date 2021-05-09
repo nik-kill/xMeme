@@ -46,10 +46,6 @@ class CreateMeme extends Component {
 
         console.log(meme);
         this.props.addMeme(meme);
-        // axios.post('https://x4meme.herokuapp.com/memes', meme)
-        //     .then(res => console.log(res.data));
-
-        // window.location = '/';
     }
 
     render() {

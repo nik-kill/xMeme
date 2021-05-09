@@ -16,7 +16,7 @@ import {
 export const loadUser = () => (dispatch, getState) => {
     dispatch({ type: USER_LOADING});
 
-    axios.get('http://localhost:8081/user/user',tokenConfig(getState))
+    axios.get('https://x4meme.herokuapp.com/user/user',tokenConfig(getState))
     .then(res => 
         dispatch({
             type:USER_LOADED,
@@ -41,7 +41,7 @@ export const register = ({ name, username, password }) => dispatch => {
 
     const body = JSON.stringify({ name, username, password});
 
-    axios.post('http://localhost:8081/user/register', body, config)
+    axios.post('https://x4meme.herokuapp.com/user/register', body, config)
     .then(res =>
         dispatch({
             type: REGISTER_SUCCESS,
@@ -68,7 +68,7 @@ export const login = ({ username, password }) => dispatch => {
 
     const body = JSON.stringify({ username, password });
 
-    axios.post('http://localhost:8081/user/login', body, config)
+    axios.post('https://x4meme.herokuapp.com/user/login', body, config)
     .then(res => 
         dispatch({
             type: LOGIN_SUCCESS,

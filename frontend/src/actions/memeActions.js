@@ -6,7 +6,7 @@ import { returnErrors } from './errorActions';
 export const getMemes = () => dispatch => {
     dispatch(setMemesLoading());
     console.log("getting");
-    axios.get('http://localhost:8081/')
+    axios.get('https://x4meme.herokuapp.com/')
     .then(res =>
         dispatch({
             type: GET_MEMES,
@@ -18,7 +18,7 @@ export const getMemes = () => dispatch => {
 };
 
 export const addMeme = meme => (dispatch, getState) => {
-    axios.post('http://localhost:8081/', meme, tokenConfig(getState))
+    axios.post('https://x4meme.herokuapp.com/', meme, tokenConfig(getState))
     .then(res => 
         dispatch({
             type: ADD_MEME,
@@ -31,7 +31,7 @@ export const addMeme = meme => (dispatch, getState) => {
 
 export const deleteMeme = id => (dispatch, getState) => {
     console.log("DELETING----- reducer");
-    axios.delete(`http://localhost:8081/${id}`, tokenConfig(getState))
+    axios.delete(`https://x4meme.herokuapp.com/${id}`, tokenConfig(getState))
     .then(res => dispatch({
         type: DELETE_MEME,
         payload: id
