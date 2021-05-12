@@ -43,7 +43,9 @@ class Login extends Component {
             password: this.state.password,
         };
 
-        this.props.login(credentials);
+        if(this.props.login(credentials)){
+            window.location.reload();
+        }
     }
 
     render() {

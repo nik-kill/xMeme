@@ -31,10 +31,6 @@ class MemesList extends Component {
         meme : PropTypes.object.isRequired,
         auth: PropTypes.object.isRequired
     };
-
-    componentDidMount() {
-        this.props.getMemes();
-    }
     
     deleteMeme(id) {
         this.props.deleteMeme(id);
@@ -45,7 +41,7 @@ class MemesList extends Component {
         const { memes }  = this.props.meme;
         console.log(memes);
         console.log(user);
-        return memes.map(currentmemes => {
+        return memes.reverse().map(currentmemes => {
             return <Memes memes={currentmemes} 
             deleteMeme={this.deleteMeme} key={currentmemes._id} isAuth={ isAuthenticated } user={user}/>;
         });

@@ -38,7 +38,7 @@ class Board extends Component {
         return (
             <div className="board">
                 {user ? <div>
-                    <strong>`Welcome ${user.name}`</strong> <Logout />
+                    <strong>Welcome {user.name}<br/></strong> <Logout />
                     </div>: ''}
                 
                 {isAuthenticated ? <CreateMeme /> : <div>

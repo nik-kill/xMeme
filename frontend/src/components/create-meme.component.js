@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
-import { addMeme } from '../actions/memeActions';
+import { addMeme, getMemes} from '../actions/memeActions';
 import PropTypes from 'prop-types';
 
 class CreateMeme extends Component {
@@ -17,10 +17,13 @@ class CreateMeme extends Component {
         }
     };
 
+    componentDidMount() {
+        this.props.getMemes();
+    }
+
     static propTypes = {
         auth: PropTypes.object.isRequired
     };
-
 
     onChangeCaption(e) {
         this.setState({
@@ -44,8 +47,15 @@ class CreateMeme extends Component {
             url: this.state.url,
         };
 
-        console.log(meme);
-        this.props.addMeme(meme);
+        // console.log(meme);
+
+        if (this.props.addMeme(meme)) {
+            window.location.reload();
+        }
+        this.setState({
+            url: "",
+            caption: ""
+        });
     }
 
     render() {
@@ -87,5 +97,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { addMeme }
+    { addMeme, getMemes }
 )(CreateMeme);
