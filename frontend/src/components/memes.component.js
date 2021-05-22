@@ -26,6 +26,10 @@ class MemesList extends Component {
         this.deleteMeme = this.deleteMeme.bind(this);
     };
 
+    componentDidMount() {
+        this.props.getMemes();
+    }
+
     static propTypes = {
         getMemes : PropTypes.func.isRequired,
         meme : PropTypes.object.isRequired,
