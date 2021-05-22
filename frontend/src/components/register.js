@@ -59,20 +59,8 @@ class Register extends Component {
             rpassword: this.state.rpassword,
         };
         // console.log(user);
-        // const{username, password}= this.state;
         this.props.register(newUser);
 
-        // await axios.post('http://localhost:8081/user/register', user)
-        //     .then(res => console.log(res.data));
-        
-        // const loginResponse = await axios.post("http://localhost:8081/user/login",{
-        //     username, password
-        // });
-        // // setUserData({
-        // //     token: loginResponse.data.token,
-        // //     user: loginResponse.data.user
-        // // });
-        // localStorage.setItem("auth-token", loginResponse.data.token);
     }
 
     render() {
