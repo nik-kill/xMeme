@@ -43,18 +43,26 @@
 
 .board{
   /* border: solid; */
+  margin-top: 15px;
 
 }
 
-.toggleButton{
-  width: 100%;
+.toggleButton, .authUser{
+  width: 15%;
+  float: right;
   height: 55px;
   font-size: large;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color:lawngreen;
+  background-color:black;
+  color:silver;
   border: solid;
-  border-color:brown;
-  border-radius: 15px;
+  border-color:orange;
+  border-radius: 5px;
+}
+.authUser a{
+  text-decoration: none;
+  color: orange;
+  float: right;
 }
 
 .loginBoard, .registerBoard, .createMemeBoard{
@@ -66,6 +74,7 @@
   align-items: center;
   padding: 10px;
   border-radius: 25px;
+  width: 100%;
 
 }
 .username, .password, .name, .caption, .url{

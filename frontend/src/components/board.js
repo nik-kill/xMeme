@@ -37,7 +37,7 @@ class Board extends Component {
 
         return (
             <div className="board">
-                {user ? <div>
+                {user ? <div className="authUser">
                     <strong>Welcome {user.name}<br/></strong> <Logout />
                     </div>: ''}
                 
