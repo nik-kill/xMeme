@@ -6,7 +6,6 @@ export default class EditMeme extends Component {
     constructor(props) {
         super(props);
 
-        // this.onChangeUsername = this.onChangeUsername.bind(this);
         this.onChangeCaption = this.onChangeCaption.bind(this);
         this.onChangeURL = this.onChangeURL.bind(this);
         this.onSubmit = this.onSubmit.bind(this);

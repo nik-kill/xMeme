@@ -18,12 +18,18 @@ router.route('/register').post( async (req, res) => {
         const name = req.body.name;
         const username = req.body.username;
         const password = req.body.password;
+        const rPassword = req.body.rpassword;
 
         if(!name || !username || !password)
         return res.status(400).json({msg: "Fill all the fields."});
 
+        if (password !== rPassword)
+            return res.status(400).json({ msg: "Password and Repeat Password field value different." });
+
+
         if(password.length < 8) 
         return res.status(400).json({msg: "Password length should be more than 8 characters"});
+
 
         const existingUser = await User.findOne({username: username});
         if(existingUser)

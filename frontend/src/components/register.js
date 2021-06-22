@@ -27,25 +27,21 @@ class Register extends Component {
     };
 
     onChangeName(e) {
-        // console.log("name to be changed");
         this.setState({
             name: e.target.value
         });
     }
     onChangeUsername(e) {
-        // console.log("username to be changed");
         this.setState({
             username: e.target.value
         });
     }
     onChangePassword(e) {
-        // console.log("password to be changed");
         this.setState({
             password: e.target.value
         });
     }
     onChangeRPassword(e) {
-        // console.log("password to be changed");
         this.setState({
             rpassword: e.target.value
         });
@@ -58,7 +54,6 @@ class Register extends Component {
             password: this.state.password,
             rpassword: this.state.rpassword,
         };
-        // console.log(user);
         this.props.register(newUser);
 
     }
