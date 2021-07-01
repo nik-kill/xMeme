@@ -15,8 +15,7 @@
 }
 
 .App {
-  background: radial-gradient(rgba(0, 0, 0, 0.95), transparent);
-  background-repeat: no-repeat;
+  background-image: url("bg.jpg");
   padding: 2px;
   overflow-x: hidden;
 }
@@ -43,7 +42,6 @@
 
 .board{
   /* border: solid; */
-  margin-top: 15px;
 
 }
 
@@ -66,15 +64,18 @@
 }
 
 .loginBoard, .registerBoard, .createMemeBoard{
-  background-color: burlywood;
   font-family:cursive;
-  /* border: solid; */
+  background-color:rgb(250, 7, 7,0.5);
+  border-left: dotted;
+  border-bottom: dashed;
+  border-color:blue;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 10px;
-  border-radius: 25px;
+  border-radius: 50px;
   width: 100%;
+  margin: 5px;
 
 }
 .username, .password, .name, .caption, .url{

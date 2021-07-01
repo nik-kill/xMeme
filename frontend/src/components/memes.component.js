@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 const Memes = props => (
     <div className="meme">
-        <img alt="memeImage" src={props.memes.url} height="400px"></img>
+        <img alt="memeImage" src={props.memes.url} height="250px"></img>
         <div className="memeData">
             <b>Username: </b> {props.memes.name} <br></br>
             <b>Caption: </b> {props.memes.caption} <br></br>

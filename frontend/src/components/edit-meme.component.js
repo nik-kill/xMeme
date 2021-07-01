@@ -58,8 +58,6 @@ export default class EditMeme extends Component {
 
         axios.post('https://x4meme.herokuapp.com/memes/update/' + this.props.match.params.id, meme)
             .then(res => console.log(res.data));
-
-        // window.location = '/';
     }
 
     render() {

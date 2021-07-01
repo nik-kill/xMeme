@@ -46,9 +46,6 @@ class CreateMeme extends Component {
             caption: this.state.caption,
             url: this.state.url,
         };
-
-        // console.log(meme);
-
         if (this.props.addMeme(meme)) {
             window.location.reload();
         }

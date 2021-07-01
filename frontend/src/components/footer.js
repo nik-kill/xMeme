@@ -6,7 +6,7 @@ export default class Footer extends Component {
         return (
             <div className="footer">
                 <hr />
-                <h1>My foot -- says the footer</h1>
+                Made with Khoon Pasina
 
             </div>
         )

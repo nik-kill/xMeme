@@ -27,7 +27,6 @@ class Board extends Component {
         this.setState({
             isUser: !this.state.isUser
         });
-        // console.log(this.state.isUser);
     }
     
     render() {
