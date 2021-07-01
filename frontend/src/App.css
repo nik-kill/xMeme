@@ -15,8 +15,7 @@
 }
 
 .App {
-  background-image: url("bg.jpg");
-  padding: 2px;
+  background-image: url("assets/images/bg.jpg");
   overflow-x: hidden;
 }
 
