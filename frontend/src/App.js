@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Provider } from 'react-redux';
+
+//importing CSS
 import './App.css';
+
+//importing from Components
 
 import MemesList from "./components/memes.component";
 import EditMeme from "./components/edit-meme.component";
-
-
 import Board from "./components/board";
 import Footer from "./components/footer";
 
+//importing redux store
 import store from './store';
+
 import { loadUser } from './actions/authActions';
 
 class App extends Component{
