@@ -11,8 +11,8 @@ const Memes = props => (
             <b>Username: </b> {props.memes.name} <br></br>
             <b>Caption: </b> {props.memes.caption} <br></br>
             {props.isAuth && props.user && (props.user.username==props.memes.name) ?
-            <div>
-                <button><Link to={"/edit/" + props.memes._id}>EDIT</Link></button> | 
+            <div className="action-buttons">
+                <button><Link to={"/edit/" + props.memes._id}>EDIT</Link></button>
                 <button onClick={() => { props.deleteMeme(props.memes._id) }}>DELETE</button>
             </div>
             : ' ' }
